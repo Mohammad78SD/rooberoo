@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'User',
+    'Event',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +77,12 @@ WSGI_APPLICATION = 'RooBeRooTicket.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'RooBeRoo_db',
+        'USER': 'postgres',
+        'PASSWORD': 'Mohammad.2000',
+        'HOST': 'localhost',  # Change as per your PostgreSQL configuration
+        'PORT': '5432',           # Change as per your PostgreSQL configuration
     }
 }
 
