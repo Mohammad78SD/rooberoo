@@ -1,13 +1,19 @@
 from django.contrib import admin
-from .models import ejra, rooydad, sans, review
+from .models import Event, Sans, Review, Ticket
 
+from django_jalali.admin.filters import JDateFieldListFilter
+
+import django_jalali.admin as jadmin
 
 # Register your models here.
-class ejraAdmin(admin.ModelAdmin):
+class EventAdmin(admin.ModelAdmin):
     search_fields = ['title',]
-    list_filter = ['start_sale_date',]
+    list_filter = ['location',]
     
-admin.site.register(ejra, ejraAdmin)
-admin.site.register(rooydad)
-admin.site.register(sans)
-admin.site.register(review)
+    
+
+    
+admin.site.register(Event, EventAdmin)
+admin.site.register(Sans)
+admin.site.register(Review)
+admin.site.register(Ticket)

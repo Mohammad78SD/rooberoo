@@ -23,3 +23,8 @@ class User(models.Model):
     # membership = models.ManyToManyField('Membership', through='UserMembership')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    class Meta:
+        verbose_name = "کاربر"
+        
+    def __str__(self) -> str:
+        return self.name + " " + self.lastname
