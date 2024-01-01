@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'User',
     'Event',
     'main_app',
+    'channels'
 ]
 
 MIDDLEWARE = [
@@ -75,6 +76,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'RooBeRooTicket.wsgi.application'
+ASGI_APPLICATION = 'RooBeRooTicket.asgi.application'
 
 
 # Database
@@ -85,7 +87,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'RooBeRoo_db',
         'USER': 'postgres',
-        'PASSWORD': 'Mohammad.2000',
+        'PASSWORD': 'armin1383',
         'HOST': 'localhost',  # Change as per your PostgreSQL configuration
         'PORT': '5432',           # Change as per your PostgreSQL configuration
     }
@@ -141,3 +143,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
