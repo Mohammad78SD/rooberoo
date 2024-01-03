@@ -120,6 +120,10 @@
                         {% endfor %}
                         {% comment %} <li class='dropdown-item'>Hello</li>
                         <hr class="dropdown-divider"> {% endcomment %}
+                        {%for i in notifications %}
+                        <li class="dropdown-item">{{li.message}}</li>
+                        <hr class="dropdown-divider">
+                        {% endfor %}
                         
                     </ul>
                 </li>

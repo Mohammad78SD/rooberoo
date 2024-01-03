@@ -38,10 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'django.celery.beat',
+    # 'django.celeryresults',
     'User',
     'Event',
     'main_app',
-    'channels'
+    'channels',
+    'notification_app'
 ]
 
 MIDDLEWARE = [
@@ -70,6 +73,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 'mainapp.custom_context_processors.notifications',
             ],
         },
     },
@@ -118,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/kolkata'
 
 USE_I18N = True
 
