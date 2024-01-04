@@ -38,9 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'django.celery.beat',
+    # 'django.celeryresults',
     'User',
     'Event',
     'main_app',
+    'channels',
+    'notification_app'
 ]
 
 MIDDLEWARE = [
@@ -69,12 +73,14 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 'mainapp.custom_context_processors.notifications',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'RooBeRooTicket.wsgi.application'
+ASGI_APPLICATION = 'RooBeRooTicket.asgi.application'
 
 
 # Database
@@ -85,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'RooBeRoo_db',
         'USER': 'postgres',
-        'PASSWORD': 'Mohammad.2000',
+        'PASSWORD': 'armin1383',
         'HOST': 'localhost',  # Change as per your PostgreSQL configuration
         'PORT': '5432',           # Change as per your PostgreSQL configuration
     }
@@ -116,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/kolkata'
 
 USE_I18N = True
 
@@ -141,3 +147,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
